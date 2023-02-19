@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{114E2FE8-1B61-4AFD-A10E-517A5D93CEA9}</ProjectGuid>
+    <ProjectGuid>{AFF450E1-11DB-4A96-8D0D-4323D6C0F71F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tastico.Entity</RootNamespace>
-    <AssemblyName>Tastico.Entity</AssemblyName>
+    <RootNamespace>Tastico.Data</RootNamespace>
+    <AssemblyName>Tastico.Data</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -57,15 +57,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Category.cs" />
-    <Compile Include="Cuisine.cs" />
-    <Compile Include="DifficultyLevel.cs" />
+    <Compile Include="Migrations\202302191906561_Entity.cs" />
+    <Compile Include="Migrations\202302191906561_Entity.designer.cs">
+      <DependentUpon>202302191906561_Entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recipe.cs" />
+    <Compile Include="TasticoDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tastico.Entity\Tastico.Entity.csproj">
+      <Project>{114E2FE8-1B61-4AFD-A10E-517A5D93CEA9}</Project>
+      <Name>Tastico.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202302191906561_Entity.resx">
+      <DependentUpon>202302191906561_Entity.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
